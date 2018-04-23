@@ -5,10 +5,10 @@
 #include <fstream>
 
 int main(int argc, char **argv){
-  ros::init(argc, argv, "ForceTorqueServer");
+  ros::init(argc, argv, "force_torque_sensor");
   
   ros::NodeHandle n;
-  ros::Publisher wrench_pub = n.advertise<geometry_msgs::Wrench>("ForceTorqueReadings", 10);
+  ros::Publisher wrench_pub = n.advertise<geometry_msgs::Wrench>("force_torque_readings", 10);
   
   cereal::CerealPort cp;
   cp.open("/dev/ttyUSB0", 19200);

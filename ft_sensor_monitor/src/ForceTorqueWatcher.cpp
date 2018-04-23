@@ -15,7 +15,7 @@ void forceTorqueCallback(const geometry_msgs::WrenchConstPtr& msg){
   {
     std_msgs::String out_msg;
     out_msg.data = "Hit \n";
-    std::cout << "Hit \n";
+    ROS_INFO("Hit");
     warning_pub->publish(out_msg);
   }
 
@@ -26,11 +26,11 @@ void forceTorqueCallback(const geometry_msgs::WrenchConstPtr& msg){
 }
 
 int main(int argc, char ** argv){
-  ros::init(argc, argv, "ForceTorqueWatcher");
+  ros::init(argc, argv, "force_torque_watcher");
   ros::NodeHandle n;
   
-  ros::Subscriber sub = n.subscribe("ForceTorqueReadings", 10, forceTorqueCallback);
-  ros::Publisher warning_pub_impl = n.advertise<std_msgs::String>("ForceTorqueWatcher/Warning", 5);
+  ros::Subscriber sub = n.subscribe("force_torque_readings", 10, forceTorqueCallback);
+  ros::Publisher warning_pub_impl = n.advertise<std_msgs::String>("force_torque_watcher/warning", 5);
   warning_pub = &warning_pub_impl;
 
   ros::spin();

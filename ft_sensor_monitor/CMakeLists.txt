@@ -127,20 +127,20 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(ForceTorqueServer src/ForceTorqueServer.cpp src/CerealPort.cpp)
-add_executable(Watcher src/ForceTorqueWatcher.cpp src/CerealPort.cpp)
+add_executable(force_torque_server src/ForceTorqueServer.cpp src/CerealPort.cpp)
+add_executable(force_torque_watcher src/ForceTorqueWatcher.cpp src/CerealPort.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(ForceTorqueServer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(Watcher ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(force_torque_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(force_torque_watcher ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(ForceTorqueServer
+target_link_libraries(force_torque_server
    ${catkin_LIBRARIES}
  )
 
-target_link_libraries(Watcher
+target_link_libraries(force_torque_watcher
    ${catkin_LIBRARIES}
  )
 
